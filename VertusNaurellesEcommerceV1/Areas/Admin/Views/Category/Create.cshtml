@@ -1,0 +1,50 @@
+﻿@model Domains.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section id="sectionCreate">
+   
+   
+    <div class="ContainerCreate text-center">
+       
+            <h4 class="card-title text-center">Crée une catégorie</h4>
+       
+
+        <form asp-action="Create" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="IdCategory" class="control-label"></label>
+                <input asp-for="IdCategory" class="form-control" />
+                <span asp-validation-for="IdCategory" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="CategoryName" class="control-label"></label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoNameCategory" class="control-label"></label>
+                <input asp-for="SeoNameCategory" class="form-control" />
+                <span asp-validation-for="SeoNameCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark">Ajouter</button>
+            </div>
+        </form>
+        <div class="form-group text-center">
+            <a asp-action="Index">retour</a>
+        </div>
+    </div>
+</section>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

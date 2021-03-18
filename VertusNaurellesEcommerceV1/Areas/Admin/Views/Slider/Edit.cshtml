@@ -1,0 +1,61 @@
+﻿@model Domains.Slider
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section id="sectionCreate">
+
+
+
+    <div class="ContainerCreateProduct">
+        <h4 class="card-title  text-center">Modifier</h4>
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdSlider" class="control-label"></label>
+                <input type="hidden" asp-for="IdSlider" class="form-control" />
+                <span asp-validation-for="IdSlider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description1" class="control-label"></label>
+                <input asp-for="Description1" class="form-control" />
+                <span asp-validation-for="Description1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description2" class="control-label"></label>
+                <input asp-for="Description2" class="form-control" />
+                <span asp-validation-for="Description2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label"></label>
+                <input asp-for="Link" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlImage" class="control-label"></label>
+                <input type="File" name="file" asp-for="UrlImage" class="form-control" />
+                <span asp-validation-for="UrlImage" class="text-danger"></span>
+            </div>
+            <input  hidden readonly asp-for="UrlImage" class="form-control" />
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
+            </div>
+        </form>
+        <div class="form-group text-center">
+            <a asp-action="Index">retour</a>
+        </div>
+    </div>
+    </section>
+
+ 
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

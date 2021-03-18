@@ -1,0 +1,17 @@
+﻿@using Microsoft.Extensions.Options
+
+@inject IOptions<StripeSettings> Stripe
+<h1>
+    @ViewBag.TotalAllItems
+</h1>
+<form method="post">
+    @{ 
+        var totalPrice = ViewBag.TotalAllItems * 100 ;
+    }
+    <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="@Stripe.Value.PublicKey" data-amount="@totalPrice" data-description="paiement">
+                               
+
+
+    </script>
+
+</form>

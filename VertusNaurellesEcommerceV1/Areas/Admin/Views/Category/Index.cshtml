@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Domains.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="sectionProductAdmin">
+
+
+    <div class="ContainerProductAdmin">
+        <p>
+            <h4 class="card-title text-center">Gestion de catégories</h4>
+
+        </p>
+
+
+
+        <p class="text-center">
+            <a asp-action="Create" class="btn btn-success">Ajouter</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Menu principal</a>
+
+        </p>
+        <table >
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdCategory)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CategoryName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    
+                    @*<th >
+                        @Html.DisplayNameFor(model => model.UrlImage)
+                    </th>*@
+                <th>
+                    Actions
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.UrlImage)
+                        </td>*@
+                        <td class="tdBtns">
+                            <a class="btn btn-dark my-1" asp-action="Details" asp-route-Id="@item.IdCategory">Détails</a>
+                            <a class="btn btn-dark  my-1" asp-action="Edit" asp-route-Id="@item.IdCategory">Modifier</a>
+                            <a class="btn btn-danger  my-1" asp-action="Delete" asp-route-Id="@item.IdCategory">Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+   </section>
+    

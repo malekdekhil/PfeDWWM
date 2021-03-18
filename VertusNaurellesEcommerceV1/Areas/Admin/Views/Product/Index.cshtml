@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Domains.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="sectionProductAdmin">
+    <!-- Basic Tables start -->
+
+  
+    <div class="ContainerProductAdmin">
+        <p>
+            <h4 class="card-title text-center">Gestion d'article</h4>
+
+        </p>
+
+
+        <p class="text-center">
+            <a asp-action="Create" class="btn btn-success">Ajouter</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Menu principal</a>
+
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>nom d'article</th>
+                    <th>P.vente</th>
+                    <th>Promotion</th>
+                    <th>Categorie</th>
+                    <th>Quantité</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdProduct</td>
+                        <td>@item.Name</td>
+                        <td>@item.SalesPrice</td>
+                        @if (item.InPromo == false)
+                        {
+                            <td>Non</td>
+                        }
+                        else
+                        {
+                            <td>Oui</td>
+
+                        }
+                        <td>@item.Category.CategoryName</td>
+                        <td>@item.Quantity</td>
+                        <td><img src="~/images/ProductsImages/@item.ImageUrl" class="img-fluid"style="height:50px" /> </td>
+
+
+
+                        <td class="tdBtns">
+                            <a class="btn btn-dark my-1" asp-action="Details" asp-route-Id="@item.IdProduct" >Détails</a>
+                            <a class="btn btn-dark  my-1"  asp-action="Edit" asp-route-Id="@item.IdProduct" >Modifier</a>
+                            <a class="btn btn-danger  my-1" asp-action="Delete" asp-route-Id="@item.IdProduct" >Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+</section>
+<!-- Basic Tables end -->

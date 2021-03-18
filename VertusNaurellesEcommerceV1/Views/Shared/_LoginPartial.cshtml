@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using VertusNaurellesEcommerceV1.BI
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+@{ string fullName = null;
+
+    if (SignInManager.IsSignedIn(User))
+    {
+
+        AppUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            fullName = user.FirstName + " " + user.LastName;
+        }
+    }
+}
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item text-center">
+        <a class="nav-link" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            Mon Compte
+        </a>
+    </li>
+    <span>@fullName</span>
+    <li class="nav-item text-center">
+        <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button class="btn btn-outline-danger" id="logout" type="submit">Se déconnecter</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item text-center">
+        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">S'inscrire</a>
+    </li>
+    <li class="nav-item text-center">
+        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">Se connecter</a>
+    </li>
+
+}
+

@@ -1,0 +1,80 @@
+﻿@model Domains.Slider
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section id="sectionDetails" >
+
+    <h4 class="card-title  text-center">Détails</h4>
+ 
+            <table class="tableDetailsAdmin">
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.IdSlider)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.IdSlider)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Title)
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Description1)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Description1)
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Description2)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Description2)
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Title)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Title)
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Link)
+
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Link)
+                    </td>
+                </tr>
+
+            </table>
+
+    
+   
+</section>

@@ -1,0 +1,18 @@
+﻿@model Product
+  
+        <div class="cardChild my-2">
+            <img src="~/images/ProductsImages/@Model.ImageUrl" class="img-fluid imgCard" alt="@Model.SeoName">
+           
+                <h5 class="cardTitle">@Model.Name</h5>
+                <p class=" cardLinkContainer">
+                   
+                    <button onclick="AddCart(this.value)" class="btn btn-dark btnAddAcc d-block" type="submit" id="btnAddAcc" value="@Model.IdProduct">
+                        Je craque                     @Model.SalesPrice.ToString("C")
+                    </button>
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.IdProduct" class="btn btn-outline-dark more">En savoir plus</a>
+                </p>
+            
+             
+           
+        </div>
+  

@@ -1,0 +1,18 @@
+﻿@model Domains.Slider
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h4 class="text-center my-4">
+    êtes-vous sûr de vouloir supprimer  ?
+</h4>
+<div class="text-center">
+
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="UrlImage" class="form-control" />
+
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-action="Index">Annuler</a>
+    </form>
+</div>

@@ -1,0 +1,98 @@
+﻿@model Product  
+
+@{
+    ViewData["Title"] = "Create";
+}
+<section id="sectionCreate">
+  
+
+
+    <div class="ContainerCreateProduct">
+         <h4 class="card-title text-center ">Crée un article</h4>
+         <form asp-action="Create" enctype="multipart/form-data">
+             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             @*<div class="form-group">
+        <label asp-for="IdProduct" class="control-label"></label>*@
+             <input type="hidden" asp-for="IdProduct" class="form-control" />
+             @*<span asp-validation-for="IdProduct" class="text-danger"></span>
+        </div>*@
+             <div class="form-group">
+                 <label asp-for="Name" class="control-label"></label>
+                 <input asp-for="Name" class="form-control" />
+                 <span asp-validation-for="Name" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="SeoName" class="control-label"></label>
+                 <input asp-for="SeoName" class="form-control" />
+                 <span asp-validation-for="SeoName" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="PurchasePrice" class="control-label"></label>
+                 <input asp-for="PurchasePrice" class="form-control" />
+                 <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="SalesPrice" class="control-label"></label>
+                 <input asp-for="SalesPrice" class="form-control" />
+                 <span asp-validation-for="SalesPrice" class="text-danger"></span>
+             </div>
+             @*<div class="form-group form-check">
+                 <label class="form-check-label">
+                     <input class="form-check-input" asp-for="InPromo" /> @Html.DisplayNameFor(model => model.InPromo)
+                 </label>
+             </div>*@
+             <div class="form-group form-check">
+                 <label asp-for="InPromo" class="form-check-label pr-4">  </label>
+                 <input class="form-check-input   " asp-for="InPromo" />
+                 <span asp-validation-for="InPromo" class="text-danger"></span>
+
+
+             </div>
+             <div class="form-group">
+                 <label asp-for="ShortDescription" class="control-label"></label>
+                 <input asp-for="ShortDescription" class="form-control" />
+                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="LongDescription" class="control-label"></label>
+                 <input asp-for="LongDescription" class="form-control" />
+                 <span asp-validation-for="LongDescription" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="ImageUrl" class="control-label"></label>
+                 <input type="File" name="file" asp-for="ImageUrl" required class="form-control" />
+                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="Quantity" class="control-label"></label>
+                 <input asp-for="Quantity" class="form-control" />
+                 <span asp-validation-for="Quantity" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+                 <label asp-for="CreationDate" class="control-label"></label>
+                 <input asp-for="CreationDate" class="form-control" />
+                 <span asp-validation-for="CreationDate" class="text-danger"></span>
+             </div>
+
+             <div class="form-group">
+                 <label asp-for="CategoryId" class="control-label"></label>
+                 <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.categories,"IdCategory","CategoryName"))" class="form-control"></select>
+                 <span asp-validation-for="CategoryId" class="text-danger"></span>
+             </div>
+             <div class="form-group text-center">
+                 <button type="submit" class="btn btn-dark">Ajouter</button>
+             </div>
+         </form>
+        <div class="form-group text-center">
+            <a asp-action="Index">retour</a>
+        </div>
+    </div>
+
+
+</section>
+
+   
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

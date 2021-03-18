@@ -1,0 +1,117 @@
+﻿@model CartViewModel
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
+@{
+    ViewData["Title"] = "Cart";
+}@{
+}
+<section style="margin-top:150px;">
+        <p class="linkHistory"><a class="nav-link LinkH" href="/Order/History">Historique</a></p>
+        <form asp-action="Stripe" method="POST">
+
+            @if (Model != null)
+            {
+
+                <table  class=" container col-lg-8">
+
+                    @foreach (var item in Model.ListProducts)
+                    {
+
+
+
+                        <tr class="trBasket ">
+                            <td hidden name="ProductId" value="@item.ProductId">
+                            </td>
+                            <td class="tdBasket" name="ProductName" value="@item.ProductName">
+                                @item.ProductName
+
+                            </td>
+                            @*<td>
+                                <img src="~/images/ProductsImages/@item.ProductUrlImage" style=" height: 40px;" />
+
+                            </td>*@
+
+                            <td class="tdBasket" id="Qte" name="ProductQuantity" value="@item.ProductQuantity">
+                                Quantité @item.ProductQuantity
+                            </td>
+
+                            <td class="tdBasket" name="ProductPrice" value="@item.ProductPrice">
+                                Prix unitaire @item.ProductPrice
+                            </td>
+
+                            <td class="tdBasket" name="Total" value="@item.Total">
+                                Total  @item.Total
+                                <input hidden value="@item.Total" />
+                            </td>
+                            <td class="tdBasket">
+                                <a class="link-danger alert" asp-controller="Order" asp-action="RemoveItem" asp-route-id="@item.ProductId">x</a>
+                            </td>
+                        </tr>
+
+                    }
+                    @{ var TVA = (Model.TotalAllItems / 100) * 10;
+                        var TTC = Model.TotalAllItems + TVA;
+                        var TTCStripe = TTC * 100;
+                    }
+                    @if (Model.TotalAllItems.Equals(0))
+                    {
+
+                        <tr>
+                            <td class="basketEmpty">
+                                Votre panier est vide
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+                if (Model.TotalAllItems >= 1)
+                {
+
+                    <div style="background-color:whitesmoke; " id="totalCart" class="mt-5">
+
+                        <p class="col-12 text-center" style="background-color:whitesmoke; ">
+                            Prix HT: @Model.TotalAllItems <span>euro</span>
+
+                        </p>
+
+
+                        <p class="col-12 text-center">
+                            Total de la commande TTC: @TTC <span>euro</span>
+
+                        </p>
+                    </div>
+
+                    <p class="col-12 text-center">
+
+                        <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="@Stripe.Value.PublicKey" data-amount="@TTCStripe" data-description="paiement">
+
+                        </script>
+
+                        <script>
+
+                            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                        </script>
+                        <button  type="submit" class="btn btn-dark btnRadius">Payer ma commande</button>
+
+                    </p>
+                }
+
+            }
+            @if (Model == null)
+            {
+                <div class="basketEmpty">
+                    <p> Votre panier est vide</p>
+                </div>
+
+            }
+        </form>
+
+</section>
+
+
+@section Scripts{ 
+<script>
+    
+
+</script>
+    }

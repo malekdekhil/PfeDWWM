@@ -1,0 +1,101 @@
+﻿@model VertusNaurellesEcommerceV1.BI.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+<section id="contact" class="contact">
+    <div class="container">
+
+
+
+        <div class="row no-gutters justify-content-center ">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="icofont-google-map"></i>
+                        <h4>Emplacement:</h4>
+                        <p>10 avenue des canuts 69120 Vaulx-en-velin. </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icofont-envelope"></i>
+                        <h4>Email:</h4>
+                        <p><a href="mailto:vertus-naturelles@gmail.com">vertus-naturelles@gmail.com.</a></p>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icofont-phone"></i>
+                        <h4>Mobile:</h4>
+                        <p><a href="tel:0789744958" style="color:#21413c;">07 89 74 49 58.</a></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.514965453844!2d4.9204633155198!3d45.760868979105496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c0fdfbef5bbd%3A0x2293b4428737eac3!2s10%20Avenue%20des%20Canuts%2C%2069120%20Vaulx-en-Velin!5e0!3m2!1sfr!2sfr!4v1613583862820!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-10">
+                    <form asp-action="Contact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger col-6"></div>
+                        <div class="form-row">
+                            <div class="col-md-6 form-group">
+                                <input asp-for="FirstName" placeholder="Nom" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-6">
+                                <input asp-for="LastName" placeholder="Prénom" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 form-group">
+                                <input asp-for="sujet" placeholder="Objet" class="form-control" />
+                                <span asp-validation-for="sujet" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input asp-for="Email" placeholder="E-mail" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="Message" placeholder="Message" class="form-control"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            @if (Model != null)
+                            {
+                                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                                    <strong>votre message est envoyer !</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+
+                            }
+                           
+                        </div>
+
+                        <div class="form-group text-center">
+                            <input type="submit" value="Envoyer" class="btn btn-outline-dark btnSend" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+   
+</section><!-- End Contact Section -->
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

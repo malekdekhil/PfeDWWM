@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Domains.Slider>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section id="sectionProductAdmin">
+    <!-- Basic Tables start -->
+
+
+    <div class="ContainerProductAdmin">
+        <p>
+            <h4 class="card-title text-center">Gestion de carousel</h4>
+
+        </p>
+
+
+
+        <p class="text-center">
+            <a asp-action="Create" class="btn btn-success">Ajouter</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Menu principal</a>
+
+        </p>
+        <table>
+            <thead>
+                <tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Description 1</th>
+                    <th>Description 2</th>
+                    <th>Lien</th>
+                    <th>Images</th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.IdSlider</td>
+                    <td>@item.Title</td>
+                    <td>@item.Description1</td>
+                    <td>@item.Description2</td>
+                    <td>@item.Link</td>
+
+                    <td><img src="~/images/SliderImages/@item.UrlImage" class="img-fluid" style="height:50px" /> </td>
+
+                    <td class="tdBtns">
+                        <a class="btn btn-dark my-1" asp-action="Details" asp-route-Id="@item.IdSlider">Détails</a>
+                        <a class="btn btn-dark  my-1" asp-action="Edit" asp-route-Id="@item.IdSlider">Modifier</a>
+                        <a class="btn btn-danger  my-1" asp-action="Delete" asp-route-Id="@item.IdSlider">Supprimer</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+   </section>

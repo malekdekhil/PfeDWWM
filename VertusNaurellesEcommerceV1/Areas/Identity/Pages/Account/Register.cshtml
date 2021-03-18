@@ -1,0 +1,113 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "s'inscrire";
+}
+
+<section id="sectionLogin" class="container ">
+   
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div class="row rowLogin d-flex justify-content-center align-items-center">
+
+            <div class="col-md-6 ">
+                <h2 class="text-center pb-5  titleLogin">
+                    S'inscrire
+                </h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.FirstName"></label>
+                        <input asp-for="Input.FirstName" class="form-control" />
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.LastName"></label>
+                        <input asp-for="Input.LastName" class="form-control" />
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-8 form-group">
+                        <label asp-for="Input.Address"></label>
+                        <input asp-for="Input.Address" class="form-control" />
+                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label asp-for="Input.City"></label>
+                        <input asp-for="Input.City" class="form-control" />
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.Country"></label>
+                        <select asp-for="Input.Country" class="form-control">
+                            <option selected value="France">France</option>
+                        </select>
+                        <span asp-validation-for="Input.Country" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <label asp-for="Input.CodeZip"></label>
+                        <input asp-for="Input.CodeZip" class="form-control" />
+                        <span asp-validation-for="Input.CodeZip" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="submit" class="btn btn-outline-dark btnSend">S'inscrire</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+            
+
+
+            @*@{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }*@
+
+      
+</section>
+
+
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }

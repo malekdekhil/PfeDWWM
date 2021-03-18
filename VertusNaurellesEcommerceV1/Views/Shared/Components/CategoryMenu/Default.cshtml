@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Category>
+@foreach (var item in Model)
+{
+    <li class="nav-item liCategory" >
+    <a  class="nav-link" asp-area="default" asp-controller="Product" asp-action="ProductInCategory" asp-route-id="@item.IdCategory">@item.CategoryName</a>
+    </li>
+
+}

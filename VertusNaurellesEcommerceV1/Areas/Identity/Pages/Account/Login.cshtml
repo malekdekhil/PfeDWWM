@@ -1,0 +1,88 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "se connecter";
+}
+<section id="sectionLogin" class="container ">
+    <div class="row rowLogin d-flex justify-content-center align-items-center">
+
+        <div class="col-md-6">
+                <h2 class="text-center pb-5  titleLogin" >
+                    Connectez-vous !
+
+                </h2>
+           
+
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <p class="text-center">
+                            <button type="submit" class="btn btn-outline-dark btnRadiusBorderOn">Se connecter</button>
+                        </p>
+                    </div>
+                        
+                    
+                     
+
+                        <div class="form-group">
+                            <p class="checkbox text-center">
+                                <label asp-for="Input.RememberMe">
+
+                                    <input asp-for="Input.RememberMe" />
+                                    memoriser mes données
+                                </label>
+                            </p>
+                            <p class="text-center">
+                                <a id="forgot-password" asp-page="./ForgotPassword">Mot de passe oublié ?</a>
+                            </p>
+                            <p class="text-center">
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">S'inscrire</a>
+                            </p>
+                            @*<p class="text-center">
+                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Renvoyer un e-mail de confirmation</a>
+                            </p>*@
+                        </div>
+                </form>
+
+
+
+
+            @*@{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }*@
+
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,109 @@
+﻿@model PageDetailsProductViewModel
+<section id="sectionDetailsProduct">
+    <div class="container">
+
+        <div class="row d-flex justify-content-center mb-5 ">
+
+            <div class="col-lg-10 d-flex justify-content-center flex-wrap">
+
+                <div class="col-lg-5 col-sm-10 text-center  ">
+                    <img src="~/images/ProductsImages/@Model.product.ImageUrl" class="img-fluid imgCard" alt="@Model.product.SeoName">
+                </div>
+                <div class="card-body col-lg-5 py-auto  ">
+                    <h4 class="card-title text-center">@Model.product.Name</h4>
+                    <p class="card-text mt-5 ">@Model.product.ShortDescription</p>
+                    <p class="card-text my-5">@Model.product.LongDescription</p>
+
+                    <p class="card-text mt-5 text-center">
+                        <button type="submit" id="btnAdd" class="btn btn-dark btnAddAcc" value="@Model.product.IdProduct"> Ajouter @Model.product.SalesPrice.ToString("C") </button>
+
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+
+    @if (Model.product.Opinions == null)
+    {
+        <p>pas d'avis pour ce produit</p>
+    }
+    else
+    {
+    <div class="my-5 pt-3">
+        @foreach (var avis in Model.product.Opinions)
+        {
+
+            <div class="text-center my-4 bg-light">
+                <div>
+
+                    <p>
+                        <i>@avis.UserName </i>  @for (int i = 1; i <= avis.Note; i++)
+                        {
+                            <span><i class="icofont-star"></i></span>
+                        }
+                    </p>
+
+                </div>
+
+                <div>@avis.Commentaire</div>
+            </div>
+
+
+        }
+    </div>
+    }
+
+    </div>
+
+    <div class="container">
+        <h3 class="card-title mb-3">Laissez un avis sur le produit: @Model.product.Name</h3>
+        <p class="text">Merci de compléter les champs ci dessous:</p>
+
+        <form asp-controller="Product" asp-action="SaveComment">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*<div class="form-group">
+                <label>Nom:</label>
+                <input type="text" name="nom" value="@Model.Nom" class="form-control" />
+            </div>*@
+
+            <textarea cols="5" name="Commentaire" class="form-control"></textarea>
+            <br />
+            <div class="form-group">
+                <label>Donnez une note: </label>
+                <select required name="Note" class="form-control">
+                    <option selected="selected">Votre note</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <p class="text-center mt-3">
+                <input type="submit" value="Mon avis" class="btn btn-outline-dark btnRadiusBorderOn" />
+                <input type="hidden" name="ProductId" value="@Model.product.IdProduct" />
+            </p>
+        </form>
+    </div>
+</section>
+    @section Scripts{
+
+
+        <script>
+            const AddBtnPr = document.getElementById("btnAdd");
+            const btnAddValue = document.getElementById("btnAdd").value;
+            const basket = document.getElementById("basket");
+            AddBtnPr.addEventListener('click', () => {
+                var xhr = new XMLHttpRequest();
+                let link = '/Product/AddToCart/' + btnAddValue;
+                xhr.open("POST", link, true);
+                xhr.send();
+
+            });
+
+        </script>
+
+    }

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Product>
+    <section id="productInCategory">
+            <div class="containerCard ">
+                @foreach (var p in Model)
+                {
+                    <partial name="_CardProduct" model="@p" />
+
+                }
+            </div>
+    </section>
+    @section Scripts{
+        <script>
+            // AddCart---------------------------------------------------
+            function AddCart(id) {
+
+                var xhr = new XMLHttpRequest();
+                let link = '/Product/AddToCart/' + id;
+
+                xhr.open("Post", link, true);
+                xhr.send();
+
+            }
+
+
+
+        </script>
+
+
+    }

@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VertusNaurellesEcommerceV1</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/icofont/icofont.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    @*<meta property="og:url" content="https://vertus-naturelles.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vertus Naturelles" />
+    <meta property="og:description" content="Your description" />
+    <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />*@
+</head>
+<body>
+
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 py-1 fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-brand col-3 d-flex justify-content-center w-100 mx-auto">
+                    <a id="linkLogo" href="/Home/Index"><img src="~/images/Logo/logo6.png" class="imgLogo" /></a>
+
+                </div>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center flex-column" id="navbarSupportedContent">
+                    @*---------------------------- floor 1------------------------------------------------- *@
+                    <div class="navbar-nav mb-2 mb-lg-0   d-flex justify-content-lg-between w-100">
+
+                        <ul class="navbar-nav col-lg-6 col-md-6 col-sm-6 mx-auto">
+
+                            <li class="nav-item   text-center w-100">
+                                <form asp-action="Search" asp-controller="Product" class=" d-flex mx-auto  ">
+                                    <input class="  inputSearch  " name="term" type="search" placeholder="" aria-label="Search">
+                                    <button class="btnSearch " type="submit">Trouver</button>
+                                </form>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav col-lg-2 col-md-3 col-sm-3 mx-auto">
+                            <li class="nav-item dropdown text-center">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="icofont-ui-user"></i>
+                                </a>
+
+                                <ul class="dropdown-menu text-center w-100" aria-labelledby="navbarDropdown">
+
+
+                                    <partial name="_loginPartial" />
+
+                                </ul>
+                            </li>
+
+                            <li id="basket" class="nav-item text-center">
+
+                                <a class="nav-link" href="/Order/cart">
+                                    <i class="icofont-basket"></i>
+
+                                </a>
+                            </li>
+                            <li class="nav-item  text-center ">
+                                <a class="nav-link" href="https://www.facebook.com/"><i class="icofont-facebook"></i></a>
+                            </li>
+                            <li class="nav-item  text-center">
+                                <a class="nav-link" href="https://www.instagram.com/"><i class="icofont-instagram"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    @*---------------------------- floor 2------------------------------------------------- *@
+
+                    <div class="navbar-nav mt-2 mb-0 pb-0  d-flex justify-content-lg-around w-100">
+                        <ul class="navbar-nav col-lg-4 col-sm-4 col-md-4 d-flex align-items-center ulCategories  w-100">
+                            <li class="nav-item   dropdown  text-center w-100">
+                                <a class="nav-link dropdown-toggle linkCategories" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Nos produits
+                                </a>
+
+                                <ul class="dropdown-menu text-center w-100 mx-auto " aria-labelledby="navbarDropdown">
+                                    @await Component.InvokeAsync("CategoryMenu")
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav  col-lg-5 col-md-6 col-sm-5 d-flex justify-content-between ">
+                            <li class="nav-item liPage w-100  ">
+                                <a class="nav-link linkHome" href="/Home/Index">Home</a>
+                            </li>
+
+                            <li class="nav-item liPage  w-100 ">
+                                <a class="nav-link"  href="/product/Index">Boutique</a>
+                            </li>
+                           
+                            <li class="nav-item liPage w-100  ">
+                                <a class="nav-link" href="/Home/contact">Contact</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+
+    <footer class="footer text-muted">
+       
+
+            <div class="footerTop">
+                <div class="parentColFoot">
+                    <h4 class="itemsTi">Contactez-nous</h4><p class="tel"><span><i class="icofont-telephone"></i></span><a href="tel:0789744958"> 07 89 74 49 58</a></p><p class="mail"><span><i class="icofont-ui-email"></i></span><a href="mailto:vertus-naturelles@gmail.com"> vertus-naturelles@gmail.com</a></p>
+                </div>
+                <div class="parentColFoot">
+                    <h4 class="itemsTi">Plan de site</h4>
+                    <p><a href="/Home/Index" class="itemsLink">Accueil</a></p>
+                    <p><a href="/product/Index" class="itemsLink">Boutique</a></p>
+                    <p><a href="/Identity/Account/Manage" class="itemsLink">Mon compte</a></p>
+                </div>
+                <div class="parentColFoot">
+                    <h4 class="itemsTi">Informations</h4>
+                    <p> <a href="#" class="LinkInfo">Mention légale</a></p>
+                    <p> <a href="#" class="LinkInfo">Politique de confidentialité</a></p>
+                    <p> <a href="#" class="LinkInfo">Conditions générales de vente</a></p>
+                </div>
+
+            </div>
+
+            <div class="container text-center">
+               
+                    <strong><span>@DateTime.Now.Year.ToString() - VertusNaurellesEcommerceV1 -</span></strong>.
+                
+
+            </div>
+    
+       
+    </footer>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

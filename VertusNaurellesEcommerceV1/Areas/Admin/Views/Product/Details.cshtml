@@ -1,0 +1,130 @@
+﻿@model Domains.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section id="sectionDetails">
+
+    <h4 class="card-title  text-center">Détails</h4>
+
+    <table class="tableDetailsAdmin">
+       
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IdProduct)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.IdProduct)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SeoName)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SeoName)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PurchasePrice)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SalesPrice)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SalesPrice)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.InPromo)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.InPromo)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ShortDescription)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.LongDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LongDescription)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </td>
+            <td>
+                <img src="~/images/ProductsImages/@Model.ImageUrl" style="height:128px" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Quantity)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Quantity)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CreationDate)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CreationDate)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CategoryId)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CategoryId)
+
+            </td>
+        </tr>
+    </table>
+</section>
+    

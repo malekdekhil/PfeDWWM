@@ -1,0 +1,216 @@
+﻿@model ProductViewModel
+
+@if (Model.ListSliders != null)
+{
+    <section id="slider" class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+
+            <div class="carousel-inner ">
+                <div class="carousel-item active">
+
+
+                    @if (@ViewBag.FirstSlider != null)
+                    {
+                        <img class="d-block w-100 imgSlider" src="~/images/SliderImages/@ViewBag.FirstSlider" alt="@Model.ListSliders.FirstOrDefault().Title">
+
+                    }
+                    <div class="carousel-caption d-none d-md-block  containerTextSlider">
+                        @if (@Model.ListSliders.FirstOrDefault() != null)
+                        {
+                            <a class="linkSlider" href="@Model.ListSliders.FirstOrDefault().Link">
+
+
+                                @*<p class="text titleSlider"> @Model.ListSliders.FirstOrDefault().Title</p>
+
+                                    <p class="text desctiption1"> @Model.ListSliders.FirstOrDefault().Description1</p>
+                                    <p class="text desctiption2">
+                                        @Model.ListSliders.FirstOrDefault().Description2
+
+                                    </p>*@
+                            </a>
+                        }
+
+                    </div>
+                </div>
+
+                @foreach (var s in Model.ListSliders.Where(c => c.IdSlider > @ViewBag.FirstSliderId))
+                {
+                    <div class="carousel-item">
+
+                        <img class="d-block w-100 imgSlider" src="~/images/SliderImages/@s.UrlImage" alt="@s.Title">
+
+                        <div class="carousel-caption d-none d-md-block  containerTextSlider">
+                            @*<a class="linkSlider" href="@s.Link">*@
+                            @*<h1 class=" text titleSlider">@s.Title</h1>
+
+
+                                <p class="desctiption1">@s.Description1</p>
+                                <p class="desctiption2">
+                                    @s.Description2
+
+                                </p>*@
+                            @*</a>*@
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+}
+<section id="ban1" class="py-4">
+
+
+    <div class="container py-3">
+        <h2 class="pb-3">Etes-vous prêt de découvrir nos produits ?</h2>
+        <!-- disparait à md -->
+        <p class="text-dark d-none d-md-block">
+            Nous choisissons nous-mêmes, avec la plus grande exigence et nous nous engageons à vous satisfaire.
+        </p>
+        <a href="/Product/Index" class="btn btn-dark btnRadius mt-3">Découvrez maintenant</a>
+
+    </div>
+</section>
+
+<section class="sectionNouveautes">
+
+    <div class="clipPathContainer1 "><h2>  Nouveautés </h2>  </div>
+
+
+    <div class="containerCard py-5">
+
+
+
+
+
+        @foreach (var p in Model.ListProducts.OrderByDescending(c => c.CreationDate).Where(x => x.Quantity >= 1).Take(4))
+        {
+
+
+
+            <partial name="_CardProduct" model="@p" />
+
+
+
+
+
+
+
+        }
+    </div>
+
+</section>
+<section id="ban2" class="py-4">
+    <div class="container  py-3">
+
+        <div id="carouselContent" class="carousel slide" data-ride="carousel" data-interval="1000">
+
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active text-center p-4">
+                    <p class="font-italic">
+                        "Des cosmétiques à petit prix."
+                    </p>
+                </div>
+                <div class="carousel-item text-center p-4">
+                    <p class="font-italic">
+                        "Livraison offerte sur tout nos produits."
+                    </p>
+                </div>
+                <div class="carousel-item text-center p-4">
+                    <p class="font-italic">
+                        "Satisfait ou remboursé."
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@if (Model.ListProducts.Where(i => i.InPromo == true).Where(x => x.Quantity >= 1).Count() >= 1)
+{
+    <section id="promotions" class="mt-2">
+        <div class="clipPathContainer2 "><h2>  Promotions </h2>  </div>
+
+        <div class="containerCard py-5">
+
+            @foreach (var lpp in Model.ListProducts.Where(i => i.InPromo == true).Where(x => x.Quantity >= 1))
+            {
+
+
+                <partial name="_CardProduct" model="@lpp" />
+
+
+
+            }
+
+
+
+
+        </div>
+
+
+    </section>
+
+}
+else
+{
+
+}
+
+
+
+<section id="sectionLivraison" class="bg-light">
+    <div class="container py-5 ">
+        <div class="row">
+            <div class="col-md-4 text-center">
+
+                <h2><i class="icofont-stripe-alt"></i>&nbsp;Paiement sécurisé</h2>
+                <p class="pl-2">
+                    Paiement sécurisé avec Stripe.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h2><i class="icofont-fast-delivery"></i>&nbsp;Livraison offerte</h2>
+                <p class="pl-2">
+                    Faites des économies livraison gratuite.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h2><i class="icofont-live-support"></i>&nbsp;A votre écoute</h2>
+                <p class="pl-2">
+                    du lundi au vendredi
+                    10h-12h30 / 14h-17h.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script>
+        // AddCart---------------------------------------------------
+        function AddCart(id) {
+
+            let xhr = new XMLHttpRequest();
+            let link = '/Product/AddToCart/' + id;
+
+            xhr.open("Post", link, true);
+            xhr.send();
+
+        }
+
+
+
+    </script>
+
+
+}

@@ -1,0 +1,47 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Changer mon E-mail";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+<section class="container" id="sectionAccountGlobal">
+
+    <h4 class="text-center">@ViewData["Title"]</h4>
+    <partial name="_StatusMessage" model="Model.StatusMessage" />
+    <div class="row d-flex justify-content-center align-items-sm-start py-xl-5 h-100">
+        <div class="col-md-6   w-100">
+            <form id="email-form" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    @if (Model.IsEmailConfirmed)
+                    {
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control" disabled />
+                            <div class="input-group-append">
+                                <span class="input-group-text text-success font-weight-bold">✓</span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <input asp-for="Email" class="form-control" disabled />
+                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Envoyer un email de vérification</button>
+                    }
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.NewEmail"></label>
+                    <input asp-for="Input.NewEmail" class="form-control" />
+                    <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                </div> 
+                <p class="text-center mt-2">
+                    <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-outline-dark btnRadiusBorderOn mt-2">Modifier</button>
+
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

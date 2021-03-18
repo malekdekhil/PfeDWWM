@@ -1,0 +1,56 @@
+﻿@model Domains.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+<section id="sectionDetails">
+
+    <h4 class="card-title  text-center">Détails</h4>
+
+    <table class="tableDetailsAdmin">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IdCategory)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.IdCategory)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CategoryName)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CategoryName)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Description)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SeoNameCategory)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SeoNameCategory)
+
+            </td>
+        </tr>
+      
+     
+    
+    </table>
+ </section>
+     
