@@ -31,8 +31,8 @@ namespace VertusNaurellesEcommerceV1.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Champ requis")]
+            [EmailAddress(ErrorMessage ="e-mail non valid")]
             public string Email { get; set; }
         }
 

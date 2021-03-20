@@ -2,37 +2,41 @@
 /*Global*/
 * ::after ::before {
     box-sizing: border-box;
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
 }
+
 * {
     font-family: 'Kaushan Script';
-    letter-spacing:1.2px;
-    font-weight:400;
+    letter-spacing: 1.2px;
+    font-weight: 400;
 }
+
 html {
     position: relative;
     min-height: 100%;
 }
 
-ul{
-    list-style:none;
+ul {
+    list-style: none;
 }
+
 .btnRadius {
     border-radius: 1.5rem;
     border: none;
     padding: 12px;
 }
+
 .btnRadiusBorderOn {
     border-radius: 1.5rem;
     padding: 12px;
 }
 
-a{
+a {
     color: black;
-    text-decoration:none;
-    
+    text-decoration: none;
 }
+
 .more {
     border-radius: 1.5rem;
     padding: 12px;
@@ -48,6 +52,7 @@ a{
     background-color: whitesmoke;
     object-fit: cover;
 }
+
 #ban2 {
     position: relative;
     background-image: url('../images/banieres/ban2.gif');
@@ -57,54 +62,58 @@ a{
     text-align: center;
     background-color: whitesmoke;
 }
+
 #carouselContent {
     margin: 25px auto;
     font-size: 35px;
     color: #000;
     font-weight: 400;
 }
-  
+
 
 /*slider*/
 .containerTextSlider {
-   
-    height:100%;
-    padding:70px 0px;
+    height: 100%;
+    padding: 70px 0px;
 }
-.linkSlider{
-    color: white;
 
-}
-.linkSlider:hover {
+.linkSlider {
     color: white;
 }
+
+    .linkSlider:hover {
+        color: white;
+    }
 
 #slider {
     margin-top: 123px;
     background-color: none;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
 }
+
 .imgSlider {
- 
 }
+
 .titleSlider {
     background-color: rgba(246, 246, 246, 0.50);
     text-align: center;
     font-size: 50px;
     color: azure;
 }
+
 .desctiption1 {
-    position:absolute;
-    bottom:200px;
+    position: absolute;
+    bottom: 200px;
     font-size: 30px;
 }
+
 .desctiption2 {
     position: absolute;
     bottom: 100px;
-    left:175px;
+    left: 175px;
     font-size: 30px;
 }
-/*navBar*/ 
+/*navBar*/
 .liCategory {
     text-align: center;
 }
@@ -143,11 +152,13 @@ a{
     border-top: 1px solid lightgray;
     border-left: none;
     border-right: 1px solid lightgray;
-    color:grey;
+    color: grey;
 }
+
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
+
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
@@ -164,10 +175,11 @@ a{
     align-items: center;
     background-color: white;
 }
-.cardChild:hover {
-    box-shadow: 0 .25rem .75rem #727b40;
-}
- 
+
+    .cardChild:hover {
+        box-shadow: 0 .25rem .75rem #727b40;
+    }
+
 
 .containerCard {
     display: flex;
@@ -175,19 +187,22 @@ a{
     align-items: center;
     flex-wrap: wrap;
 }
-.cardLinkContainer{
-    display:flex;
-    justify-content:space-around;
-    width:100%;
+
+.cardLinkContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
-.cardTitle{
-    font-size:1.2rem;
-    margin : 5px 0 15px 0;
-    font-weight:400;
+
+.cardTitle {
+    font-size: 1.2rem;
+    margin: 5px 0 15px 0;
+    font-weight: 400;
 }
+
 .imgCard {
-   
 }
+
 .btnAddAcc {
     border-radius: 1.5rem;
     border: none;
@@ -195,7 +210,7 @@ a{
 }
 /*Endcard*/
 .iconCustom {
-   color: #e7b244;
+    color: #e7b244;
 }
 /*
 
@@ -207,19 +222,20 @@ a{
 /*media query*/
 @media (min-width: 573px) {
     html {
-
     }
-  
+    
 }
+
 @media (max-width: 573px) {
 
     .footerTop {
         flex-direction: column;
     }
-    .imgSlider {
-        margin-bottom:10px;
-    }
 
+    .imgSlider {
+        margin-bottom: 10px;
+    }
+  
 }
 
 /*Section footer*/
@@ -228,8 +244,9 @@ a{
 footer {
     margin-top: 200px;
     border-top: 1px dashed #000;
-    padding-bottom:0px;
+    padding-bottom: 0px;
 }
+
 .footerTop {
     display: flex;
     justify-content: space-around;
@@ -250,12 +267,11 @@ footer {
 .itemsTi {
     color: #727b40;
     font-size: 18px;
-
 }
 
 
 
- 
+
 
 /*Section Nouveautés index*/
 .sectionNouveautes {
@@ -271,7 +287,6 @@ footer {
     clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
     top: 0px;
     height: 75px;
-
 }
 
 /*Section promotions index*/
@@ -298,12 +313,13 @@ footer {
 #contact {
     margin-top: 150px;
 }
+
 .contact .info {
     padding: 30px;
     width: 100%;
     background: #fff;
-    box-shadow: 0 .25rem .75rem #727b40;
-    padding: 25% 12%;
+    box-shadow: 0 .25rem .75rem rgb(114 123 64 / 0.38);
+    padding: 23% 12%;
 }
 
     .contact .info i {
@@ -329,7 +345,6 @@ footer {
         padding: 0 0 0 60px;
         margin-bottom: 0;
         font-size: 14px;
-       
     }
 
     .contact .info .email p {
@@ -339,17 +354,18 @@ footer {
 .btnSend {
     border-radius: 1.5rem;
     padding: 12px;
-    width:100px;
+    width: 100px;
 }
- /*Product*/
-#sectionProduct{
-    margin-top:150px;
+/*Product*/
+#sectionProduct {
+    margin-top: 150px;
 }
 
 /*sectionDetailsProduct*/
-#sectionDetailsProduct{
-    margin-top:150px;
+#sectionDetailsProduct {
+    margin-top: 150px;
 }
+
 .icofont-star {
     color: #e7b244;
 }
@@ -357,50 +373,52 @@ footer {
 #productInCategory {
     margin-top: 150px;
 }
+
 #sectionLivraison {
     border-top: 1px dashed #000;
 }
+
 .basketEmpty {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
 }
-#sectionBasket {
-    
-}
-.linkHistory {
 
+#sectionBasket {
+    height: 500px;
+}
+
+.linkHistory {
     padding: 7px;
-    z-index: 10000;
+    z-index: 1000;
     position: fixed;
     right: 20px;
-    top: 150px;
+    top: 120px;
     background-color: rgba(114, 123, 64, 0.70);
-    border-radius:10px;
+    border-radius: 10px;
 }
-.linkHistory:hover {
 
-
-    background-color: rgba(114, 123, 64, 0.24);
-
-}
+    .linkHistory:hover {
+        background-color: rgba(114, 123, 64, 0.24);
+    }
 
 
 .LinkH:hover {
-  color:black;
+    color: black;
 }
-#sectionHistory{
-    
-    margin-top:150px;
-    display:flex;
-    justify-content:center;
-    
+
+#sectionHistory {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
 }
+
 .tableHistory {
     width: 80%;
     text-align: center;
 }
+
 .tdHisotry {
     background-color: rgba(114, 123, 64, 0.70);
     padding: 10px;
@@ -412,22 +430,25 @@ footer {
     padding: 15px;
     background-color: rgba(231, 178, 68, 0.30);
 }
+
 .tableBasket {
     border: none;
+}
 
-}
-.trBasket{
+.trBasket {
     background-color: rgba(114, 123, 64, 0.70);
-    border-bottom:5px solid white;
-  
-   
+    border-bottom: 5px solid white;
 }
-.tdBasket{
-    padding : 15px;
+
+.tdBasket {
+    padding: 15px 0px;
+    text-align:center;
 }
+
 #sectionSearch {
     margin-top: 150px;
 }
+
 .SearchEmpty {
     height: 500px;
     width: 100%;
@@ -436,32 +457,35 @@ footer {
     align-items: center;
 }
 /*Section Login*/
-#sectionLogin{
-    margin-top:123px;
+#sectionLogin {
+    margin-top: 123px;
 }
-.rowLogin{
+
+.rowLogin {
     padding: 58px;
 }
-.rowLogin:hover {
-    box-shadow: 0 .25rem .75rem #727b40;
-}
+
+    .rowLogin:hover {
+        box-shadow: 0 .25rem .75rem #727b40;
+    }
 /*Section account*/
 #sectionAccount {
     margin-top: 123px;
+}
 
+.deleteAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 10px;
 }
-.deleteAccount{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:0px;
-    padding:10px;
+
+.ContainerbtnsDeleteAccount {
+    display: flex;
+    justify-content: space-evenly;
 }
-.ContainerbtnsDeleteAccount{
-    display:flex;
-    justify-content:space-evenly;
-    
-}
+
 #sectionAccountGlobal {
     height: 570px;
     padding: 0px;
@@ -473,17 +497,26 @@ footer {
 }
 
 
+.sectionCheckMail {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
 
 
 
 /*
+
 
     vert #727b40
     doré #e7b244
 
 
 */
-.stripe-button{
-    background-color:black;
-    color:white;
+.stripe-button {
+    background-color: black;
+    color: white;
 }

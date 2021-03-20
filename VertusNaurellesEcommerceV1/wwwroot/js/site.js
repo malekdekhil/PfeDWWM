@@ -1,6 +1,5 @@
 ﻿
 //scroll navbar---------------------------------------------------
-let currentScrollPos = window.pageYOffset;
 let prevScrollpos = window.pageYOffset;
 let linkLogo = document.getElementById("linkLogo")
 window.onscroll = function() {
@@ -9,10 +8,8 @@ let currentScrollPos = window.pageYOffset;
       document.getElementById("navbar").style.top = "0";
       linkLogo.style.display="block"
   } else {
-    
-      document.getElementById("navbar").style.top = "-50px";
+     document.getElementById("navbar").style.top = "-50px";
       linkLogo.style.display = "none"
-
   }
   prevScrollpos = currentScrollPos;
 }

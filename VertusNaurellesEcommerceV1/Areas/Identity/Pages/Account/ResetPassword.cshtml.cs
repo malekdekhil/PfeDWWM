@@ -28,18 +28,21 @@ namespace VertusNaurellesEcommerceV1.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Champ requis")]
+            [EmailAddress(ErrorMessage = "e-mail non valid")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Champ requis")]
+            [StringLength(100, ErrorMessage = "Le {0} doit contenir au moins {2} et au maximum {1} caractères.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+
+            [Display(Name = "Mot de passe")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "Champ requis")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmation du mot de passe")]
+            [Compare("Password", ErrorMessage = "Le mot de passe de confirmation ne correspondent pas.")]
             public string ConfirmPassword { get; set; }
 
             public string Code { get; set; }
@@ -49,7 +52,7 @@ namespace VertusNaurellesEcommerceV1.Areas.Identity.Pages.Account
         {
             if (code == null)
             {
-                return BadRequest("A code must be supplied for password reset.");
+                return BadRequest("Un code doit être fourni pour la réinitialisation du mot de passe.");
             }
             else
             {

@@ -13,7 +13,7 @@
         AppUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
         if (user != null)
         {
-            fullName = user.FirstName + " " + user.LastName;
+            fullName = user.FirstName.ToUpper() + " " + user.LastName;
         }
     }
 }

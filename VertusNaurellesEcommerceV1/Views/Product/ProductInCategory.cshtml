@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Product>
     <section id="productInCategory">
             <div class="containerCard ">
-                @foreach (var p in Model)
+                @foreach (var p in Model.OrderByDescending(c => c.CreationDate).Where(x => x.Quantity >= 1))
                 {
                     <partial name="_CardProduct" model="@p" />
 
